@@ -1,0 +1,64 @@
+@startuml
+
+entity User {
+    * **ID <<PK>>**
+    * FirstName
+    * LastName
+    * Gender
+    * DateOfBirth
+    * Height
+    * Picture
+}
+
+entity Login {
+    * **ID <<PK>>**
+    * **UserID <<FK>>**
+    * EMailAddress
+    * UserName
+    * Password
+}
+
+entity DailyData {
+    * **ID <<PK>>**
+    * **UserID <<FK>>**
+    * Steps
+    * Weight
+    * Date
+    * CalorieIntake
+}
+
+entity BodyFat {
+    * **ID <<PK>>**
+    * **UserID <<FK>>**
+    * Date
+    * Armpit
+    * Back
+    * Biceps
+    * Chest
+    * Core
+    * Hip
+    * Legs
+    * Triceps
+}
+
+entity Circumferences {
+    * **ID <<PK>>**
+    * **UserID <<FK>>**
+    * Date
+    * ChestBack
+    * Core
+    * Shoulder
+    * RightArm
+    * LeftArm
+    * RightCalve
+    * LeftCalve
+    * RightLeg
+    * LeftLeg
+}
+
+User ||--|| Login
+User ||--o{ DailyData
+User ||--o{ BodyFat
+User ||--o{ Circumferences
+
+@enduml
